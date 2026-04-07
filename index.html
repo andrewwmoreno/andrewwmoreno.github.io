@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andrew Moreno — Writing Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-bg: #FAFAF7;
+            --color-surface: #FFFFFF;
+            --color-text: #1A1A1A;
+            --color-text-secondary: #5A5A58;
+            --color-accent: #2C5F4B;
+            --color-accent-light: #E8F0EC;
+            --color-border: #E0DDD8;
+            --color-border-strong: #C8C4BD;
+            --color-tag-tech: #2C5F4B;
+            --color-tag-consumer: #6B4C8A;
+            --color-tag-editorial: #8A6B3D;
+            --font-display: 'Libre Baskerville', Georgia, serif;
+            --font-body: 'DM Sans', -apple-system, sans-serif;
+            --max-width: 820px;
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.75rem;
+            --space-lg: 3rem;
+            --space-xl: 5rem;
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 17px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ---- HEADER ---- */
+        .site-header {
+            padding: var(--space-xl) var(--space-md) var(--space-lg);
+            max-width: var(--max-width);
+            margin: 0 auto;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .header-rule {
+            width: 48px;
+            height: 3px;
+            background: var(--color-accent);
+            margin-bottom: var(--space-md);
+            border: none;
+        }
+
+        .site-header h1 {
+            font-family: var(--font-display);
+            font-size: 2.4rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            line-height: 1.2;
+            margin-bottom: var(--space-xs);
+        }
+
+        .site-header .subtitle {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 1.05rem;
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-md);
+        }
+
+        .site-header .bio {
+            font-size: 0.95rem;
+            color: var(--color-text-secondary);
+            max-width: 620px;
+            line-height: 1.75;
+        }
+
+        .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-xs) var(--space-md);
+            margin-top: var(--space-md);
+            font-size: 0.85rem;
+            color: var(--color-text-secondary);
+        }
+
+        .contact-row a {
+            color: var(--color-accent);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .contact-row a:hover {
+            border-bottom-color: var(--color-accent);
+        }
+
+        /* ---- INDEX NAV ---- */
+        .index-nav {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: var(--space-lg) var(--space-md) var(--space-md);
+        }
+
+        .index-nav h2 {
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-sm);
+        }
+
+        .index-list {
+            list-style: none;
+            counter-reset: sample;
+        }
+
+        .index-list li {
+            counter-increment: sample;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .index-list li a {
+            display: flex;
+            align-items: baseline;
+            gap: var(--space-sm);
+            padding: 0.85rem 0;
+            text-decoration: none;
+            color: var(--color-text);
+            transition: color 0.2s;
+        }
+
+        .index-list li a:hover {
+            color: var(--color-accent);
+        }
+
+        .index-list li a::before {
+            content: counter(sample, decimal-leading-zero);
+            font-family: var(--font-display);
+            font-size: 0.8rem;
+            color: var(--color-border-strong);
+            flex-shrink: 0;
+            width: 1.8rem;
+        }
+
+        .index-title {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .index-tag {
+            margin-left: auto;
+            font-size: 0.7rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 0.2em 0.65em;
+            border-radius: 3px;
+            flex-shrink: 0;
+        }
+
+        .tag-technical {
+            color: var(--color-tag-tech);
+            background: var(--color-accent-light);
+        }
+
+        .tag-consumer {
+            color: var(--color-tag-consumer);
+            background: #F0EBF5;
+        }
+
+        .tag-editorial {
+            color: var(--color-tag-editorial);
+            background: #F5F0E6;
+        }
+
+        /* ---- SAMPLES ---- */
+        .samples {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: var(--space-md) var(--space-md) var(--space-xl);
+        }
+
+        .sample {
+            padding: var(--space-lg) 0;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .sample:last-child {
+            border-bottom: none;
+        }
+
+        .sample-number {
+            font-family: var(--font-display);
+            font-size: 0.8rem;
+            color: var(--color-border-strong);
+            margin-bottom: var(--space-xs);
+        }
+
+        .sample h3 {
+            font-family: var(--font-display);
+            font-size: 1.45rem;
+            font-weight: 700;
+            line-height: 1.35;
+            margin-bottom: 0.3rem;
+        }
+
+        .sample-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem 1.2rem;
+            font-size: 0.82rem;
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-sm);
+            padding-bottom: var(--space-sm);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .sample-meta .tag {
+            font-weight: 500;
+        }
+
+        .sample-description {
+            font-size: 0.95rem;
+            color: var(--color-text);
+            line-height: 1.8;
+            max-width: 640px;
+            margin-bottom: var(--space-md);
+        }
+
+        .sample-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-bottom: var(--space-md);
+        }
+
+        .skill-chip {
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            padding: 0.3em 0.7em;
+            border: 1px solid var(--color-border);
+            border-radius: 3px;
+            color: var(--color-text-secondary);
+            background: var(--color-bg);
+        }
+
+        .sample-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--color-accent);
+            text-decoration: none;
+            padding: 0.6em 1.2em;
+            border: 1px solid var(--color-accent);
+            border-radius: 4px;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .sample-link:hover {
+            background: var(--color-accent);
+            color: #fff;
+        }
+
+        .sample-link svg {
+            width: 14px;
+            height: 14px;
+            fill: currentColor;
+        }
+
+        /* ---- FOOTER ---- */
+        .site-footer {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: var(--space-lg) var(--space-md);
+            border-top: 1px solid var(--color-border);
+            font-size: 0.8rem;
+            color: var(--color-text-secondary);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: var(--space-xs);
+        }
+
+        .site-footer a {
+            color: var(--color-accent);
+            text-decoration: none;
+        }
+
+        /* ---- ANIMATIONS ---- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(16px);
+            animation: fadeUp 0.6s ease forwards;
+        }
+
+        .fade-in:nth-child(1) { animation-delay: 0.05s; }
+        .fade-in:nth-child(2) { animation-delay: 0.12s; }
+        .fade-in:nth-child(3) { animation-delay: 0.19s; }
+        .fade-in:nth-child(4) { animation-delay: 0.26s; }
+        .fade-in:nth-child(5) { animation-delay: 0.33s; }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ---- RESPONSIVE ---- */
+        @media (max-width: 600px) {
+            html { font-size: 15px; }
+            .site-header h1 { font-size: 1.8rem; }
+            .sample h3 { font-size: 1.2rem; }
+            .index-tag { display: none; }
+            .site-footer { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="site-header">
+        <hr class="header-rule">
+        <h1 class="fade-in">Andrew Moreno</h1>
+        <p class="subtitle fade-in">Technical &amp; Content Writer</p>
+        <p class="bio fade-in">
+            Writer with 7+ years of experience creating documentation, consumer content, and editorial material across SaaS, healthcare IT, and real estate technology. I specialize in translating complex technical concepts into clear, accessible content — from API references and incident response runbooks to localized city guides and antiquarian book catalogues.
+        </p>
+        <div class="contact-row fade-in">
+            <span>Richmond, VA</span>
+            <a href="mailto:andrewwmoreno@gmail.com">andrewwmoreno@gmail.com</a>
+            <span>(319) 331-4146</span>
+        </div>
+    </header>
+
+    <!-- INDEX -->
+    <nav class="index-nav">
+        <h2>Portfolio Index</h2>
+        <ol class="index-list">
+            <li class="fade-in"><a href="#sample-1">
+                <span class="index-title">Imaging Incident Triage &amp; Escalation Plan</span>
+                <span class="index-tag tag-technical">Technical Documentation</span>
+            </a></li>
+            <li class="fade-in"><a href="#sample-2">
+                <span class="index-title">A Guide to Diaphragm Gas Meters</span>
+                <span class="index-tag tag-technical">Technical Documentation</span>
+            </a></li>
+            <li class="fade-in"><a href="#sample-3">
+                <span class="index-title">Fullerton, CA — Local Guide &amp; Video Script</span>
+                <span class="index-tag tag-consumer">Consumer Content</span>
+            </a></li>
+            <li class="fade-in"><a href="#sample-4">
+                <span class="index-title">Sequim, WA — Local Guide &amp; Video Script</span>
+                <span class="index-tag tag-consumer">Consumer Content</span>
+            </a></li>
+            <li class="fade-in"><a href="#sample-5">
+                <span class="index-title">A Pacific Miscellany: Asia and the Americas — Catalogue 201</span>
+                <span class="index-tag tag-editorial">Catalogue / Editorial</span>
+            </a></li>
+        </ol>
+    </nav>
+
+    <!-- SAMPLES -->
+    <main class="samples">
+
+        <!-- SAMPLE 1 -->
+        <article class="sample" id="sample-1">
+            <p class="sample-number">01</p>
+            <h3>Imaging Incident Triage &amp; Escalation Plan</h3>
+            <div class="sample-meta">
+                <span class="tag">UNOS</span>
+                <span>Technical Writer</span>
+                <span>2021–2022</span>
+            </div>
+            <p class="sample-description">
+                A multi-scenario escalation plan written for IT on-call staff at the United Network for Organ Sharing (UNOS). The document walks analysts through diagnosing imaging upload failures across Azure-hosted infrastructure, checking API health endpoints, reviewing system logs, and escalating to the appropriate engineering or vendor contacts. It also includes a comprehensive help desk troubleshooting section covering six common user-facing scenarios. Sensitive system names, URLs, and internal identifiers have been redacted.
+            </p>
+            <div class="sample-skills">
+                <span class="skill-chip">SOPs &amp; Runbooks</span>
+                <span class="skill-chip">Incident Response</span>
+                <span class="skill-chip">Azure Infrastructure</span>
+                <span class="skill-chip">API Documentation</span>
+                <span class="skill-chip">SME Collaboration</span>
+            </div>
+            <a class="sample-link" href="samples/Andrew_Moreno_Writing_Sample_1.pdf" download>
+                <svg viewBox="0 0 24 24"><path d="M12 16l-5-5h3V4h4v7h3l-5 5zm-7 4h14v-2H5v2z"/></svg>
+                Download PDF
+            </a>
+        </article>
+
+        <!-- SAMPLE 2 -->
+        <article class="sample" id="sample-2">
+            <p class="sample-number">02</p>
+            <h3>A Guide to Diaphragm Gas Meters</h3>
+            <div class="sample-meta">
+                <span class="tag">Index AR (Freelance)</span>
+                <span>Technical Writer</span>
+            </div>
+            <p class="sample-description">
+                An explanatory technical guide written for a general audience, covering the operating principles, key components, and meter-reading procedures for diaphragm gas meters. The piece breaks down the four-stage fill cycle, identifies each internal component and its function, and provides step-by-step instructions for reading both analog and digital meter indexes. Written as freelance work for Index AR Solutions, the guide demonstrates the ability to make mechanical and engineering concepts accessible to non-specialist readers.
+            </p>
+            <div class="sample-skills">
+                <span class="skill-chip">Explanatory Writing</span>
+                <span class="skill-chip">Technical Illustration Support</span>
+                <span class="skill-chip">Audience Analysis</span>
+                <span class="skill-chip">Information Architecture</span>
+            </div>
+            <a class="sample-link" href="samples/Andrew_Moreno_Writing_Sample_2.pdf" download>
+                <svg viewBox="0 0 24 24"><path d="M12 16l-5-5h3V4h4v7h3l-5 5zm-7 4h14v-2H5v2z"/></svg>
+                Download PDF
+            </a>
+        </article>
+
+        <!-- SAMPLE 3 -->
+        <article class="sample" id="sample-3">
+            <p class="sample-number">03</p>
+            <h3>Fullerton, CA — Local Guide &amp; Video Script</h3>
+            <div class="sample-meta">
+                <span class="tag">CoStar Group / Homes.com</span>
+                <span>Content Writer</span>
+                <span>2022–2026</span>
+            </div>
+            <p class="sample-description">
+                A consumer-facing city profile and companion video script created for the Homes.com platform. The article covers housing inventory, schools, parks, dining, and transportation for prospective homebuyers considering Fullerton, California. It incorporates quotes from a local real estate professional and balances SEO-driven structure with a conversational, informative tone. The accompanying video script adapts the same research into a shorter, narrator-friendly format with section-by-section breakdowns. This piece is representative of hundreds of similar localized guides I produced at CoStar.
+            </p>
+            <div class="sample-skills">
+                <span class="skill-chip">SEO Content</span>
+                <span class="skill-chip">Consumer-Facing Copy</span>
+                <span class="skill-chip">Video Scripting</span>
+                <span class="skill-chip">Real Estate</span>
+                <span class="skill-chip">Localized Content at Scale</span>
+            </div>
+            <a class="sample-link" href="samples/WritingSample3.pdf" download>
+                <svg viewBox="0 0 24 24"><path d="M12 16l-5-5h3V4h4v7h3l-5 5zm-7 4h14v-2H5v2z"/></svg>
+                Download PDF
+            </a>
+        </article>
+
+        <!-- SAMPLE 4 -->
+        <article class="sample" id="sample-4">
+            <p class="sample-number">04</p>
+            <h3>Sequim, WA — Local Guide &amp; Video Script</h3>
+            <div class="sample-meta">
+                <span class="tag">CoStar Group / Homes.com</span>
+                <span>Content Writer</span>
+                <span>2022–2026</span>
+            </div>
+            <p class="sample-description">
+                Another Homes.com city profile, this time covering Sequim, Washington — a small retirement-friendly city on the Olympic Peninsula. The guide covers housing options ranging from manufactured units to luxury homes, outdoor recreation including Dungeness National Wildlife Refuge and Olympic National Park, and practical details like school districts and transit access. Like the Fullerton piece, it includes both a long-form article and a condensed video script, showing adaptability across formats and audience needs within a single content workflow.
+            </p>
+            <div class="sample-skills">
+                <span class="skill-chip">SEO Content</span>
+                <span class="skill-chip">Consumer-Facing Copy</span>
+                <span class="skill-chip">Video Scripting</span>
+                <span class="skill-chip">SME Interviews</span>
+                <span class="skill-chip">Cross-Functional Coordination</span>
+            </div>
+            <a class="sample-link" href="samples/WritingSample4.pdf" download>
+                <svg viewBox="0 0 24 24"><path d="M12 16l-5-5h3V4h4v7h3l-5 5zm-7 4h14v-2H5v2z"/></svg>
+                Download PDF
+            </a>
+        </article>
+
+        <!-- SAMPLE 5 -->
+        <article class="sample" id="sample-5">
+            <p class="sample-number">05</p>
+            <h3>A Pacific Miscellany: Asia and the Americas — Catalogue 201</h3>
+            <div class="sample-meta">
+                <span class="tag">Jeff Weber Rare Books</span>
+                <span>Content Manager</span>
+                <span>2017–2018</span>
+            </div>
+            <p class="sample-description">
+                A professionally designed sales catalogue featuring 86 antiquarian books and rare materials related to Asia, the Americas, and the Pacific. As Content Manager, I researched, wrote, and edited the bibliographic descriptions, provenance notes, and historical annotations for each entry. The work required deep research into publication history, binding terminology, and collector context — distilling scholarly detail into concise, accurate copy that serves both specialist collectors and institutional buyers. I also supervised junior writers, established style standards, and managed the end-to-end production workflow.
+            </p>
+            <div class="sample-skills">
+                <span class="skill-chip">Catalogue Writing</span>
+                <span class="skill-chip">Research &amp; Annotation</span>
+                <span class="skill-chip">Editorial Management</span>
+                <span class="skill-chip">Publication Production</span>
+                <span class="skill-chip">Style Guide Development</span>
+            </div>
+            <a class="sample-link" href="https://www.weberrarebooks.com/media/home/Cat201AsiaAmericas.pdf" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24"><path d="M14 3h-4v5H7l5 5 5-5h-3V3zM5 18v2h14v-2H5z"/><path d="M18 10.5v-1l-1.5-1.5H14V3h-4v5H7.5L6 9.5v1" fill="none"/></svg>
+                View Full Catalogue
+            </a>
+        </article>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <span>&copy; 2026 Andrew Moreno</span>
+        <span><a href="mailto:andrewwmoreno@gmail.com">andrewwmoreno@gmail.com</a></span>
+    </footer>
+
+</body>
+</html>
